@@ -1,5 +1,19 @@
+import java.util.*;
+
 public class Prueba {
     public static void main(String[] args) {
-        System.out.println("Prueba de Git");
+        List<Integer> lista = new ArrayList<>();
+        Map<List<Integer>, Set<List<String>>> lio;
+        lista.add(1);
+        lista.add(1);
+        lista.add(1);
+        lista.add(1);
+        lista.add(1);
+
+        System.out.println(lista);
+        lista.set(1, 546);
+        System.out.println(lista);
+        lista.add(1, 2);
+        System.out.println(lista);
     }
 }
