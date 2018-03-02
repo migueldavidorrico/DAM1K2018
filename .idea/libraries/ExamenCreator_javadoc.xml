@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ExamenCreator-javadoc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Antiguos/ExamenCreator/doc/ExamenCreator-javadoc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
