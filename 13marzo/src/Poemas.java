@@ -1,13 +1,32 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Poemas {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        List<String> palabras = separaEnPalabras("الماء يذهب إلى الأنهار");
-        for (String p :
-                palabras) {
-            System.out.println(p);
+        List<String> frasesFichero = Files.readAllLines(Paths.get("poemaCuervos"));
+        for (String s :
+                frasesFichero) {
+            System.out.println(s);
+        }
+        List<List<String>> texto = new ArrayList<>();
+        for (String s :
+                frasesFichero) {
+            if (s.length() > 0) {
+                texto.add(separaEnPalabras(s));
+            }
+        }
+        for (List<String> lista :
+                texto) {
+            System.out.println(lista);
+        }
+        for (List<String> lista :
+                texto) {
+            System.out.println(lista.get(lista.size() - 1));
         }
     }
 
