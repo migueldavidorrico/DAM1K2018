@@ -18,6 +18,7 @@ public class PilaCorchetes {
     private static int compruebaCorrecta(String expresion) {
         try {
             Deque<Character> pila = new ArrayDeque<>();
+
             for (int i = 0; i < expresion.length(); i++) {
                 switch (expresion.charAt(i)) {
                     case '(':
