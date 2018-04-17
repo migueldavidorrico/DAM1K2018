@@ -1,5 +1,6 @@
 import java.util.*;
 
+//Importante para el segundo del boletín de colecciones
 public class Idiomas {
     public static void main(String[] args) {
         Map<String, Set<String>> listado = new TreeMap<>();
