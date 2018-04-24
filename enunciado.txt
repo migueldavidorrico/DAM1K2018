@@ -1,0 +1,14 @@
+Se quiere realizar un ejercicio o práctica de
+    programación que lea un archivo de texto y ofrezca
+    estadisticas sobre cuantas palabras de 1,2,3,4 y mas
+    de 4 letras hay en el texto, no se tendran en cuenta
+    los espacios en blanco como palabra.
+    Este ejercicio o práctica planteado por un usuario
+    del blog www.aprendoencasa.com es para que podais
+    aprender conceptos de programación en lenguaje c
+    y para que podais tener un lugar de consulta en
+    www.aprendoencasa.com
+    Vuelvo a recordar que no es la única forma de plantear
+    el programa, y por tanto siempre podeis enviar vuestras
+    opiniones o mejoras, las cuales en aprendoencasa.com
+    estare encantado de editarlas y publicarlas.

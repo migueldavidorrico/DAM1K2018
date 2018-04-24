@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static java.lang.String.format;
+import static java.util.stream.Collectors.joining;
+
 public class NumerarLineas {
     public static void main(String[] args) throws IOException {
 //        try(
@@ -40,8 +43,8 @@ public class NumerarLineas {
                     Files.lines(Paths.get("poemaCuervos"))
                             .map(String::trim)
                             .filter(str -> !str.isEmpty())
-                            .map(s -> (String.format("%3d - ", linea[0]++)) + s)
-                            .collect(Collectors.joining("\n")
+                            .map(s -> format("%3d - ", linea[0]++) + s)
+                            .collect(joining("\n")
                             ));
 
         } catch (IOException e) {
