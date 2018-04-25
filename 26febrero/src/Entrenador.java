@@ -1,4 +1,6 @@
-public class Entrenador extends IntegranteSeleccion {
+import java.io.Serializable;
+
+public class Entrenador extends IntegranteSeleccion implements Serializable {
     public Entrenador(String nombre) {
         super(nombre);
     }

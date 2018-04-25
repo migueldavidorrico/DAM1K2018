@@ -1,11 +1,12 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class InstalacionButano {
+public class InstalacionButano implements Serializable {
     private final String IDCliente;
-    private String caracteristicas;
+    private transient String caracteristicas;
     private final List<LocalDate> listaRevisiones;
 
     public boolean addRevision() {
