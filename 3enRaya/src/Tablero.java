@@ -1,9 +1,11 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Tablero {
     Casilla[][] casillas;
     boolean hayGanador;
     Jugador ganador;
+    Jugador turno;
 
     public boolean isHayGanador() {
         return hayGanador;
@@ -32,15 +34,55 @@ public class Tablero {
         }
     }
 
-    private boolean esGanador(Jugador jugador) {
-        for (int i = 0; i < 3; i++) {
+    public boolean tableroLleno() {
+        for (Casilla[] fila :
+                casillas) {
+            for (Casilla c :
+                    fila) {
+                if (c.getEstado().equals(EstadoCasilla.VACIA)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
+    protected boolean esGanador(Jugador jugador) {
+        for (int i = 0; i < 3; i++) {
+            if (casillas[i][0].getEstado().equals(jugador.getEstado())
+                    && casillas[i][1].getEstado().equals(jugador.getEstado())
+                    && casillas[i][2].getEstado().equals(jugador.getEstado())
+                    ) {
+                return true;
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (casillas[0][i].getEstado().equals(jugador.getEstado())
+                    && casillas[1][i].getEstado().equals(jugador.getEstado())
+                    && casillas[2][i].getEstado().equals(jugador.getEstado())
+                    ) {
+                return true;
+            }
+        }
+
+        if (casillas[0][0].getEstado().equals(jugador.getEstado())
+                && casillas[1][1].getEstado().equals(jugador.getEstado())
+                && casillas[2][2].getEstado().equals(jugador.getEstado())
+                ) {
+            return true;
+        }
+        if (casillas[0][2].getEstado().equals(jugador.getEstado())
+                && casillas[1][1].getEstado().equals(jugador.getEstado())
+                && casillas[2][0].getEstado().equals(jugador.getEstado())
+                ) {
+            return true;
         }
         return false;
     }
 
 
     public Tablero() {
+        this.turno = Jugador.PLAYER1;
         this.casillas = new Casilla[3][3];
         for (int i = 0; i < casillas.length; i++) {
             for (int j = 0; j < casillas[i].length; j++) {
@@ -66,7 +108,22 @@ public class Tablero {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         Tablero tablero = new Tablero();
-        System.out.println(tablero);
+        tablero.turno = Jugador.PLAYER2;
+        do {
+            tablero.turno = tablero.turno.equals(Jugador.PLAYER1) ? Jugador.PLAYER2 : Jugador.PLAYER1;
+            System.out.println(tablero);
+            System.out.println("Turno de " + tablero.turno);
+            System.out.println("ESCRIBA FILA Y COLUMNA SEPARADA POR ESPACIOS");
+            int fila = sc.nextInt();
+            int columna = sc.nextInt();
+            tablero.ponFicha(fila, columna, tablero.turno);
+        } while (!tablero.esGanador(tablero.turno) && !tablero.tableroLleno());
+        if (tablero.tableroLleno()) {
+            System.out.println("TABLAS");
+        } else {
+            System.out.println("Gana " + tablero.turno);
+        }
     }
 }
