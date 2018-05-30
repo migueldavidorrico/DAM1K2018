@@ -34,6 +34,10 @@ public class Principal {
                 super.keyReleased(e);
                 System.out.println(e.getKeyChar() + " - " + e.getKeyCode());
                 char pulsada = e.getKeyChar();
+                if (!Character.isDigit(pulsada) && !Character.isLetter(pulsada)) {
+                    System.out.println("CUIDADO CON LO QUE PULSAS");
+                    return;
+                }
                 if (Character.isDigit(pulsada)) {
                     introducidas += pulsada;
                     if (introducidas.length() == 10) {

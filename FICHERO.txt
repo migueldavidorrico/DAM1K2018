@@ -1,0 +1,3 @@
+texto
+del fichero
+de texto

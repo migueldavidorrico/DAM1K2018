@@ -4,8 +4,10 @@ import java.util.List;
 public class Palabra {
     String palabra;
     List<Letras> letras;
+    boolean acertada;
 
     public Palabra(String palabra) {
+        this.acertada = false;
         this.palabra = palabra;
         letras = new ArrayList<>();
         for (char c :
@@ -30,10 +32,19 @@ public class Palabra {
                 letras) {
             if (letra.getLetra() == l) {
                 letra.setEstado(EstadoLetra.VISIBLE);
+                encontrada = true;
             }
-            encontrada = true;
+        }
+        this.acertada = true;
+        for (Letras letra :
+                letras) {
+            if (letra.getEstado().equals(EstadoLetra.OCULTA)) {
+                this.acertada = false;
+                break;
+            }
         }
         return encontrada;
+
     }
 
     public static void main(String[] args) {
